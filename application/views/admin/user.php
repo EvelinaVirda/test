@@ -30,7 +30,7 @@
                                 <td><?= $i++; ?></td>
                                 <td><?= $u['name']; ?></td>
                                 <td><?= $u['email']; ?></td>
-                                <td><img src="<?= base_url('assets/img/profile/') . $u['image']; ?>" class="img-thumbnail" width="80" height="80" style="border: 1px solid;"></td>
+                                <td><img src="<?= base_url('assets/img/profile/') . $u['image']; ?>" href="<?= base_url('assets/img/profile/') . $u['image']; ?>" class="img-thumbnail image-link" width="80" height="80" style="border: 1px solid;"></td>
                                 <?php if ($u['role_id'] == 1) : ?>
                                     <td>Admin</td>
                                 <?php else : ?>
@@ -104,7 +104,11 @@
                                     <label for="name" class="col-sm-2 col-form-label">Status</label>
                                     <div class="col-sm-10">
                                         <select name="user_active" id="user_active" class="form-control">
-                                            <option value="<?= $u['user_active']; ?>">Active</option>
+                                            <?php if ($u['user_active']  == 1) : ?>
+                                                <option value="<?= $u['user_active']; ?>">Active</option>
+                                            <?php else : ?>
+                                                <option value="<?= $u['user_active']; ?>">Non-active</option>
+                                            <?php endif; ?>
                                             <option value="1">Active</option>
                                             <option value="0">Non-active</option>
                                         </select>

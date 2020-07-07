@@ -38,7 +38,7 @@
                                 <td><?= $i++; ?></td>
                                 <td><?= $n['title']; ?></td>
                                 <td style="word-wrap: break-word;min-width: 200px;max-width: 250px;"><?= htmlspecialchars($n['content']); ?></td>
-                                <td><img src="<?= base_url('assets/img/news/') . $n['image']; ?>" class="img-thumbnail" width="80" height="80" style="border: 1px solid;"></td>
+                                <td><img src="<?= base_url('assets/img/news/') . $n['image']; ?>" class="img-thumbnail image-link" href="<?= base_url('assets/img/news/') . $n['image']; ?>" title="Click here to zoom image." width="80" height="80" style="border: 1px solid;"></td>
                                 <td><?= $n['create_by']; ?></td>
                                 <?php if ($n['status'] == 1) : ?>
                                     <td>Active</td>
@@ -127,8 +127,23 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <div class="col-sm-12">
+                            <label for="content" class="col-sm-2 col-form-label">Content</label>
+                            <div class="col-sm-10">
                                 <textarea name="content" id="editor2" cols="30" rows="10"><?= $n['content']; ?></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="name" class="col-sm-2 col-form-label">Status</label>
+                            <div class="col-sm-10">
+                                <select name="status" id="status" class="form-control">
+                                    <?php if ($n['status']  == 1) : ?>
+                                        <option value="<?= $n['status']; ?>">Active</option>
+                                    <?php else : ?>
+                                        <option value="<?= $n['status']; ?>">Non-active</option>
+                                    <?php endif; ?>
+                                    <option value="1">Active</option>
+                                    <option value="0">Non-active</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -146,7 +161,7 @@
 
 <!-- Modal Delete News -->
 <?php foreach ($news as $n) : ?>
-    <div class="modal fade" id="deleteModal<?= $n['id_news']; ?>" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal fade" id="deleteNewsModal<?= $n['id_news']; ?>" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <form action="<?= base_url('news/delete/') . $n['id_news']; ?>" method="post" enctype="multipart/form-data">
                 <div class="modal-content">

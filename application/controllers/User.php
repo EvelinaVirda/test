@@ -8,9 +8,7 @@ class User extends CI_Controller
         parent::__construct();
         $this->load->model('User_model');
         // cek session jika tidak ada session maka akan dialihkan langsung ke auth
-        if (!$this->session->userdata('email')) {
-            redirect('auth');
-        }
+        session_check();
     }
 
     public function index()
@@ -57,7 +55,7 @@ class User extends CI_Controller
         $this->db->set('name', $name);
         $this->db->where('email', $email);
         $this->db->update('user');
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">User : ' . $this->session->userdata('email') . ' has been updated!</div>');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert" id="message">User : ' . $this->session->userdata('email') . ' has been updated!</div>');
         redirect('user');
     }
 
@@ -68,11 +66,11 @@ class User extends CI_Controller
         if ($image != 'default.jpg') {
             unlink(FCPATH . 'assets/img/profile/' . $image);
             $this->User_model->deleteUser($id);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Succesfully delete user.</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert" id="message">Succesfully delete user.</div>');
             redirect('user');
         } else {
             $this->User_model->deleteUser($id);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Succesfully delete user.</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert" id="message">Succesfully delete user.</div>');
             redirect('user');
         }
     }

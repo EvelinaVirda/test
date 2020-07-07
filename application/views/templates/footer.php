@@ -56,9 +56,26 @@
 <script src="<?= base_url('assets/'); ?>js/demo/datatables-demo.js"></script>
 
 <!-- CDN CKEditor -->
-<script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+<script src="https://cdn.ckeditor.com/4.14.1/full-all/ckeditor.js"></script>
+
+<!-- Magnific Popup core JS file -->
+<script src="<?= base_url('assets/'); ?>vendor/magnify/jquery.magnific-popup.js"></script>
+
 <script>
+    $(document).ready(function() {
+        setTimeout(function() {
+            $('#message').slideUp("slow");
+        }, 2000);
+    });
+
+    $(document).ready(function() {
+        $('.image-link').magnificPopup({
+            type: 'image'
+        });
+    });
+
     CKEDITOR.replace('editor1');
+    CKEDITOR.replace('editor2');
 </script>
 
 </body>

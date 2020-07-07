@@ -9,9 +9,7 @@ class Product extends CI_Controller
         parent::__construct();
         $this->load->model(['Product_model', 'User_model']);
         // cek session jika tidak ada session maka akan dialihkan langsung ke auth
-        if (!$this->session->userdata('email')) {
-            redirect('auth');
-        }
+        session_check();
     }
 
     public function index()
@@ -62,7 +60,7 @@ class Product extends CI_Controller
                 echo $this->upload->display_errors();
             }
         }
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfuly new add product!</div>');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert" id="message">Successfuly new add product!</div>');
         redirect('product');
     }
 
@@ -103,7 +101,7 @@ class Product extends CI_Controller
             'update_on' => time()
         ];
         $this->Product_model->updateProduct($data, $code);
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Product ' . $code . ' has been updated!</div>');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert" id="message">Product ' . $code . ' has been updated!</div>');
         redirect('product');
     }
 
@@ -114,11 +112,11 @@ class Product extends CI_Controller
         if ($image) {
             unlink(FCPATH . 'assets/img/product/' . $image);
             $this->Product_model->deleteProduct($id);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Succesfully delete product.</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert" id="message">Succesfully delete product.</div>');
             redirect('product');
         } else {
             $this->Product_model->deleteProduct($id);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Succesfully delete product.</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert" id="message">Succesfully delete product.</div>');
             redirect('product');
         }
     }

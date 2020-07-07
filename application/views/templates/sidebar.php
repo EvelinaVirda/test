@@ -24,50 +24,48 @@
         </li>
 
         <!-- Divider -->
-        <hr class="sidebar-divider my-0">
+        <hr class="sidebar-divider">
 
-        <!-- Nav Item - Dashboard -->
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Master
+        </div>
+
+        <!-- Nav Item - User -->
+
         <?php if ($this->uri->segment(1) == 'user') : ?>
             <li class="nav-item active">
             <?php else : ?>
             <li class="nav-item">
             <?php endif; ?>
-            <a class="nav-link" href="<?= base_url('user'); ?>">
+            <a class="nav-link pb-0" href="<?= base_url('user'); ?>">
                 <i class="fas fa-fw fa-table"></i>
                 <span>User</span></a>
             </li>
 
-            <!-- Nav Item - Dashboard -->
+            <!-- Nav Item - Product -->
             <?php if ($this->uri->segment(1) == 'product') : ?>
                 <li class="nav-item active">
                 <?php else : ?>
                 <li class="nav-item">
                 <?php endif; ?>
-                <a class="nav-link" href="<?= base_url('product'); ?>">
+                <a class="nav-link pb-0" href="<?= base_url('product'); ?>">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Product</span></a>
                 </li>
 
-                <!-- Nav Item - Dashboard -->
+                <!-- Nav Item - News -->
                 <?php if ($this->uri->segment(1) == 'news') : ?>
                     <li class="nav-item active">
                     <?php else : ?>
                     <li class="nav-item">
                     <?php endif; ?>
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                        <i class="fas fa-fw fa-cog"></i>
-                        <span>News</span>
-                    </a>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <a class="collapse-item" href="<?= base_url('news/create_news'); ?>">Create</a>
-                            <a class="collapse-item" href="<?= base_url('news'); ?>">Archives</a>
-                        </div>
-                    </div>
+                    <a class="nav-link pb-0" href="<?= base_url('news'); ?>">
+                        <i class="fas fa-fw fa-table"></i>
+                        <span>News</span></a>
                     </li>
 
-
-                    <!-- Nav Item - Dashboard -->
+                    <!-- Nav Item - Career -->
                     <?php if ($this->uri->segment(1) == 'career') : ?>
                         <li class="nav-item active">
                         <?php else : ?>
@@ -79,12 +77,52 @@
                         </li>
 
                         <!-- Divider -->
-                        <hr class="sidebar-divider d-none d-md-block">
+                        <hr class="sidebar-divider">
 
-                        <!-- Sidebar Toggler (Sidebar) -->
-                        <div class="text-center d-none d-md-inline">
-                            <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                        <!-- Heading -->
+                        <div class="sidebar-heading">
+                            Option
                         </div>
+                        <!-- Nav Item - Setting -->
+                        <?php if ($this->uri->segment(1) == 'profile') : ?>
+                            <li class="nav-item active">
+                            <?php else : ?>
+                            <li class="nav-item">
+                            <?php endif; ?>
+                            <a class="nav-link pb-0" href="<?= base_url('profile'); ?>">
+                                <i class="fas fa-fw fa-user-tie"></i>
+                                <span>Profile</span></a>
+                            </li>
+
+                            <!-- Nav Item - Setting -->
+                            <?php if ($this->uri->segment(1) == 'setting') : ?>
+                                <li class="nav-item active">
+                                <?php else : ?>
+                                <li class="nav-item">
+                                <?php endif; ?>
+                                <a class="nav-link pb-0" href="<?= base_url('setting'); ?>">
+                                    <i class="fas fa-fw fa-cogs"></i>
+                                    <span>Setting</span></a>
+                                </li>
+
+                                <!-- Nav Item - User -->
+                                <?php if ($this->uri->segment(2) == 'logout') : ?>
+                                    <li class="nav-item active">
+                                    <?php else : ?>
+                                    <li class="nav-item">
+                                    <?php endif; ?>
+                                    <a class="nav-link" href="<?= base_url('auth/logout'); ?>">
+                                        <i class="fas fa-fw fa-sign-out-alt"></i>
+                                        <span>Logout</span></a>
+                                    </li>
+
+                                    <!-- Divider -->
+                                    <hr class="sidebar-divider d-none d-md-block">
+
+                                    <!-- Sidebar Toggler (Sidebar) -->
+                                    <div class="text-center d-none d-md-inline">
+                                        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                                    </div>
 
 
 

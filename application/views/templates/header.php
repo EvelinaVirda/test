@@ -21,6 +21,8 @@
     <!-- Custom styles for this page -->
     <link href="<?= base_url('assets/'); ?>vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+    <!-- Magnific Popup core CSS file -->
+    <link rel="stylesheet" href="<?= base_url('assets/'); ?>vendor/magnify/magnific-popup.css">
 
 </head>
 

@@ -23,9 +23,7 @@ class Login_model extends CI_Model
                         'name' => $user['name'],
                     ];
                     $this->session->set_userdata($data); // mengambil data session yang login
-                    if ($user['role_id'] == 1) {
-                        redirect('home');
-                    }
+                    redirect('home');
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
                     Wrong password!</div>');

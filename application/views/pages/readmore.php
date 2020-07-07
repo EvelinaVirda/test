@@ -24,10 +24,6 @@
 													<i class="fa fa-folder-o text-danger"></i>
 													<a href="#"><small><?= $create_date = date("d-M-Y", strtotime($row['create_date']))  ?></small></a>
 												</li>
-
-
-
-
 											</ul>
 										</div>
 										<hr>
