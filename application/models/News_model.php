@@ -6,7 +6,7 @@ class News_model extends CI_Model
 
     // FUNGSI GET NEWS
 
-    function getAllNews()
+    public function getAllNews()
     {
         return $this->db->get('news')->result_array();
     }
@@ -14,6 +14,12 @@ class News_model extends CI_Model
      public function getSomeNews()
     {
         return $this->db->query('SELECT * FROM news limit 4')->result_array();
+    }
+
+    // FUNGSI INSERT NEWS
+    public function insertNews($data)
+    {
+        return $this->db->insert('news', $data);
     }
 
     // FUNGSI UPDATE NEWS

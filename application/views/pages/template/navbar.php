@@ -12,7 +12,7 @@
                 <img src="<?= base_url('assets/pages/') ?>images/exit.svg" alt="exit menu">
             </li>
             <li><a href="<?= base_url('indexi'); ?>">home</a></li>
-            <li><a href="<?= base_url('indexi'); ?>">services</a></li>
+            <li><a href="<?= base_url('indexi/product'); ?>">Product</a></li>
             <li><a href="<?= base_url('indexi/news/'); ?>">News</a></li>
             <li><a href="<?= base_url('indexi/about/'); ?>">about</a></li>
         </ul>

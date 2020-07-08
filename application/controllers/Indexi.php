@@ -5,7 +5,7 @@ class Indexi extends CI_Controller
 {
 	public function __construct(){
 		parent::__construct();
-		$this->load->model(['News_model']);
+		$this->load->model(['News_model','Product_model']);
 	}
 
 	public function index()
@@ -26,6 +26,8 @@ class Indexi extends CI_Controller
 		$this->load->view('pages/template/footer');
 	}
 
+	// NEWS
+
 	public function news()
 	{
 		$data['news'] = $this->News_model->getSomeNews();
@@ -43,6 +45,18 @@ class Indexi extends CI_Controller
 		$this->load->view('pages/template/header');
 		$this->load->view('pages/template/navbar');
 		$this->load->view('pages/readmore',$data);
+		$this->load->view('pages/template/footer');
+	}
+
+	// PRODUCT
+
+	public function product()
+	{
+		$data['product'] = $this->Product_model->getAllProduct();
+
+		$this->load->view('pages/template/header');
+		$this->load->view('pages/template/navbar');
+		$this->load->view('pages/product',$data);
 		$this->load->view('pages/template/footer');
 	}
 }
